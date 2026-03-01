@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 0;
+    height: 100%;
+  }
+
+  body {
+    height: 100%;
+  }
+
+  #root {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  body {
+    background-color: #0B0B0F;
+    color: #F3F4F6;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(79, 157, 255, 0.3);
+    color: #F3F4F6;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0B0B0F;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(79, 157, 255, 0.4);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(79, 157, 255, 0.7);
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(17, 17, 24, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(79, 157, 255, 0.1);
+  }
+
+  .glass-card {
+    background: rgba(17, 17, 24, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    border-color: rgba(79, 157, 255, 0.3);
+    box-shadow: 0 8px 48px rgba(79, 157, 255, 0.12);
+    transform: translateY(-4px);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #4F9DFF, #7C5CFF, #22D3EE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: gradientText 4s linear infinite;
+  }
+
+  .gradient-text-static {
+    background: linear-gradient(135deg, #4F9DFF, #7C5CFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, #4F9DFF, #7C5CFF);
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #7C5CFF, #22D3EE);
+    transition: left 0.3s ease;
+  }
+
+  .btn-primary:hover::before {
+    left: 0;
+  }
+
+  .btn-primary span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 30px rgba(79, 157, 255, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    background: transparent;
+    color: #F3F4F6;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 50px;
+    border: 1px solid rgba(79, 157, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .btn-outline:hover {
+    border-color: #4F9DFF;
+    background: rgba(79, 157, 255, 0.1);
+    box-shadow: 0 0 20px rgba(79, 157, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 1rem;
+    background: rgba(79, 157, 255, 0.1);
+    border: 1px solid rgba(79, 157, 255, 0.2);
+    border-radius: 50px;
+    color: #4F9DFF;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .skill-tag {
+    padding: 0.375rem 0.875rem;
+    background: rgba(79, 157, 255, 0.08);
+    border: 1px solid rgba(79, 157, 255, 0.15);
+    border-radius: 8px;
+    color: #9CA3AF;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .skill-tag:hover {
+    background: rgba(79, 157, 255, 0.15);
+    border-color: rgba(79, 157, 255, 0.4);
+    color: #4F9DFF;
+  }
+
+  .glow-dot {
+    width: 8px;
+    height: 8px;
+    background: #4F9DFF;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(79, 157, 255, 0.8);
+    animation: pulse 2s ease-in-out infinite;
+  }
+}
+
+@keyframes gradientText {
+  0% {
+    background-position: 0% center;
+  }
+
+  50% {
+    background-position: 100% center;
+  }
+
+  100% {
+    background-position: 0% center;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  animation: shimmer 2s infinite;
+}
+
+/* ── IDE Shell utilities */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* IDE scrollbar — thin, VS Code style */
+.ide-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ide-scroll::-webkit-scrollbar-track {
+  background: #1E1E1E;
+}
+
+.ide-scroll::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 2px;
+}
+
+.ide-scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Section wrapper inside IDE — override min-height so hero isn't 100vh inside scroller */
+#hero section {
+  min-height: 100vh;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 12px rgba(79, 157, 255, 0.8);
+  }
+
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 6px rgba(79, 157, 255, 0.4);
+  }
+}
