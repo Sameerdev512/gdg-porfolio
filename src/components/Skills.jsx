@@ -55,7 +55,7 @@ export default function Skills() {
     const nodeMap = Object.fromEntries(NODES.map(n => [n.id, n]))
 
     return (
-        <section id="skills" className="py-28 relative overflow-hidden">
+        <section id="skills" className="py-12 sm:py-16 md:py-20 lg:py-28 relative overflow-hidden">
             {/* Chapter atmosphere */}
             <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(97,218,251,0.04) 0%, transparent 70%)' }} />
             <div className="absolute inset-0 opacity-[0.015]"
@@ -65,17 +65,17 @@ export default function Skills() {
                 }}
             />
 
-            <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6">
+            <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-5 md:px-6">
                 {/* Header */}
-                <motion.div {...scrollRevealScale(0)} className="text-center mb-12">
-                    <span className="section-label mb-4 inline-flex font-mono text-xs">
+                <motion.div {...scrollRevealScale(0)} className="text-center mb-10 sm:mb-12 md:mb-14">
+                    <span className="section-label mb-2 sm:mb-3 inline-flex font-mono text-xs">
                         <span className="text-brand-primary/60 mr-1">//</span>
                         skills.constellation
                     </span>
-                    <h2 className="font-display font-black text-5xl md:text-6xl text-brand-text mt-4">
+                    <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-brand-text mt-2 sm:mt-3 md:mt-4">
                         Technology{' '}<span className="gradient-text">Map</span>
                     </h2>
-                    <p className="text-brand-muted mt-4 max-w-xl mx-auto text-lg">
+                    <p className="text-brand-muted mt-2 sm:mt-3 md:mt-4 max-w-xl mx-auto text-sm sm:text-base md:text-lg">
                         Every tool in my stack, and how they connect. Hover any node to explore the relationships.
                     </p>
                 </motion.div>

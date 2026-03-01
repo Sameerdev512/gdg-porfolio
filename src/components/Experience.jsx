@@ -17,15 +17,15 @@ function TimelineItem({ event, index, totalHeight }) {
     return (
         <div
             ref={ref}
-            className={`relative flex items-center gap-0 ${event.side === 'right' ? 'flex-row-reverse' : 'flex-row'}`}
+            className={`relative flex items-center gap-0 ${event.side === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'} flex-row`}
         >
             {/* Content card */}
-            <div className={`flex-1 ${event.side === 'right' ? 'pl-10' : 'pr-10'}`}>
+            <div className={`w-full md:flex-1 ${event.side === 'right' ? 'md:pl-6 lg:pl-12' : 'md:pr-6 lg:pr-12'}`}>
                 <motion.div
                     initial={{ opacity: 0, x: event.side === 'left' ? -50 : 50, y: 20 }}
                     animate={inView ? { opacity: 1, x: 0, y: 0 } : {}}
                     transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-                    className="glass-card rounded-2xl p-6 group relative overflow-hidden"
+                    className="glass-card rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-7 group relative overflow-hidden"
                     whileHover={{ y: -4, transition: { duration: 0.2 } }}
                     style={{ willChange: 'transform' }}
                 >
@@ -34,23 +34,23 @@ function TimelineItem({ event, index, totalHeight }) {
                         style={{ background: `linear-gradient(90deg, ${event.color}, transparent)` }}
                     />
 
-                    <div className="flex items-center gap-3 mb-3">
-                        <motion.span className="text-2xl" whileHover={{ scale: 1.2, rotate: 8 }} transition={{ duration: 0.2 }}>
+                    <div className="flex items-start gap-2.5 sm:gap-3 md:gap-3.5 mb-2.5 sm:mb-3 md:mb-4">
+                        <motion.span className="text-xl sm:text-2xl md:text-3xl flex-shrink-0 mt-0.5" whileHover={{ scale: 1.2, rotate: 8 }} transition={{ duration: 0.2 }}>
                             {event.icon}
                         </motion.span>
-                        <div>
+                        <div className="flex-1 min-w-0">
                             <span className="text-xs font-bold uppercase tracking-widest" style={{ color: event.color }}>
                                 {event.year}
                             </span>
-                            <h3 className="font-display font-bold text-lg text-brand-text">{event.title}</h3>
+                            <h3 className="font-display font-bold text-sm sm:text-base md:text-lg lg:text-xl text-brand-text leading-snug">{event.title}</h3>
                         </div>
                     </div>
-                    <p className="text-brand-muted text-sm leading-relaxed">{event.description}</p>
+                    <p className="text-brand-muted text-xs sm:text-sm md:text-base leading-relaxed">{event.description}</p>
                 </motion.div>
             </div>
 
             {/* Center spine dot with ripple */}
-            <div className="relative flex-shrink-0" style={{ width: 40, display: 'flex', justifyContent: 'center' }}>
+            <div className="relative flex-shrink-0 hidden md:flex" style={{ width: 40, display: 'flex', justifyContent: 'center' }}>
                 <motion.div
                     className="w-4 h-4 rounded-full relative z-10"
                     style={{ background: event.color, boxShadow: `0 0 16px ${event.color}80` }}
@@ -69,7 +69,7 @@ function TimelineItem({ event, index, totalHeight }) {
             </div>
 
             {/* Spacer side */}
-            <div className="flex-1" />
+            <div className="hidden md:flex md:flex-1" />
         </div>
     )
 }
@@ -84,20 +84,20 @@ export default function Experience() {
     const spineScaleY = useTransform(scrollYProgress, [0, 1], [0, 1])
 
     return (
-        <section id="experience" ref={sectionRef} className="py-28 relative overflow-hidden">
+        <section id="experience" ref={sectionRef} className="py-12 sm:py-16 md:py-20 lg:py-28 relative overflow-hidden">
             {/* Chapter atmosphere */}
             <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(79,157,255,0.05) 0%, transparent 50%)' }} />
 
-            <div className="relative z-10 max-w-4xl mx-auto px-6">
-                <motion.div {...scrollRevealScale(0)} className="text-center mb-16">
-                    <span className="section-label mb-4 inline-flex font-mono text-xs">
+            <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-5 md:px-6">
+                <motion.div {...scrollRevealScale(0)} className="text-center mb-10 sm:mb-12 md:mb-16">
+                    <span className="section-label mb-2 sm:mb-3 inline-flex font-mono text-xs">
                         <span className="text-brand-primary/60 mr-1">//</span>
                         experience.timeline
                     </span>
-                    <h2 className="font-display font-black text-5xl md:text-6xl text-brand-text mt-4">
+                    <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-brand-text mt-2 sm:mt-3 md:mt-4">
                         My <span className="gradient-text">Journey</span>
                     </h2>
-                    <p className="text-brand-muted mt-4 max-w-xl mx-auto text-lg">
+                    <p className="text-brand-muted mt-2 sm:mt-3 md:mt-4 max-w-xl mx-auto text-sm sm:text-base md:text-lg">
                         A chronological path from first principles to production systems.
                     </p>
                 </motion.div>

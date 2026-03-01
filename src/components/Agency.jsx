@@ -32,23 +32,23 @@ export default function Agency() {
     }
 
     return (
-        <section id="agency" className="py-28 relative overflow-hidden">
+        <section id="agency" className="py-12 sm:py-16 md:py-20 lg:py-28 relative overflow-hidden">
             <div
                 className="absolute inset-0"
                 style={{ backgroundImage: 'radial-gradient(ellipse at 50% 100%, rgba(79,157,255,0.06) 0%, transparent 60%)' }}
             />
 
-            <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6">
+            <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-5 md:px-6">
                 {/* Header */}
-                <motion.div {...scrollRevealScale(0)} className="text-center mb-16">
-                    <span className="section-label mb-4 inline-flex font-mono text-xs">
+                <motion.div {...scrollRevealScale(0)} className="text-center mb-10 sm:mb-12 md:mb-16 px-0">
+                    <span className="section-label mb-2 sm:mb-3 inline-flex font-mono text-xs">
                         <span className="text-brand-primary/60 mr-1">//</span>
                         agency.portfolioDemos
                     </span>
-                    <h2 className="font-display font-black text-5xl md:text-6xl text-brand-text mt-4">
+                    <h2 className="font-display font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-brand-text mt-2 sm:mt-3 md:mt-4">
                         Portfolio <span className="gradient-text">Demos & Concepts</span>
                     </h2>
-                    <p className="text-brand-muted mt-4 max-w-xl mx-auto text-lg">
+                    <p className="text-brand-muted mt-2 sm:mt-3 md:mt-4 max-w-xl mx-auto text-sm sm:text-base md:text-lg px-0">
                         Custom demo projects showcasing design, engineering, and full-stack capabilities.
                     </p>
                 </motion.div>
@@ -58,13 +58,13 @@ export default function Agency() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.3, duration: 0.5 }}
-                    className="flex flex-wrap justify-center gap-3 mb-10"
+                    className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10"
                 >
                     {categories.map((cat) => (
                         <motion.button
                             key={cat}
                             onClick={() => setActiveFilter(cat)}
-                            className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${activeFilter === cat
+                            className={`px-4 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 ${activeFilter === cat
                                 ? 'bg-brand-primary text-white shadow-glow-primary'
                                 : 'glass text-brand-muted hover:text-brand-text'
                                 }`}
@@ -79,7 +79,7 @@ export default function Agency() {
 
                 {/* Project Grid */}
                 <motion.div
-                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6"
                     variants={staggerContainer(0.07)}
                     initial="hidden"
                     animate="show"
@@ -94,14 +94,14 @@ export default function Agency() {
                             initial={{ opacity: 0, y: 32, scale: 0.95 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             transition={{ duration: 0.45, ease: EASE.out }}
-                            className="glass-card rounded-2xl overflow-hidden group cursor-pointer relative"
+                            className="glass-card rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer relative"
                             style={{ perspective: 1000, willChange: 'transform', height: 'auto' }}
                             onHoverStart={() => toggleFlip(proj.name)}
                             onHoverEnd={() => toggleFlip(proj.name)}
                         >
                             {/* Front - Card Visual */}
                             <motion.div
-                                className={`h-44 bg-gradient-to-br ${proj.gradient} flex items-center justify-center relative overflow-hidden`}
+                                className={`h-32 sm:h-40 md:h-44 bg-gradient-to-br ${proj.gradient} flex items-center justify-center relative overflow-hidden`}
                                 animate={{
                                     rotateY: isFlipped ? 180 : 0,
                                 }}
@@ -129,7 +129,7 @@ export default function Agency() {
 
                             {/* Back - View Demo Button */}
                             <motion.div
-                                className="absolute inset-0 h-44 bg-gradient-to-br flex items-center justify-center rounded-2xl"
+                                className="absolute inset-0 h-32 sm:h-40 md:h-44 bg-gradient-to-br flex items-center justify-center rounded-xl sm:rounded-2xl"
                                 style={{
                                     background: 'rgba(79, 157, 255, 0.1)',
                                     backdropFilter: 'blur(10px)',
@@ -145,7 +145,7 @@ export default function Agency() {
                                     href={proj.demoLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="btn-primary text-sm px-6 py-2"
+                                    className="btn-primary text-xs sm:text-sm px-4 sm:px-6 py-1.5 sm:py-2"
                                     onClick={(e) => e.stopPropagation()}
                                 >
                                     <span>View Demo</span>
@@ -156,18 +156,18 @@ export default function Agency() {
                             </motion.div>
 
                             {/* Content section */}
-                            <div className="p-5">
-                                <div className="flex items-center justify-between mb-2">
-                                    <h3 className="font-display font-bold text-lg text-brand-text">{proj.name}</h3>
+                            <div className="p-4 sm:p-5">
+                                <div className="flex items-center justify-between gap-2 mb-2">
+                                    <h3 className="font-display font-bold text-sm sm:text-lg text-brand-text line-clamp-1">{proj.name}</h3>
                                     <span
-                                        className="text-xs font-semibold px-2 py-0.5 rounded-full"
+                                        className="text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap"
                                         style={{ background: `${proj.color}15`, color: proj.color }}
                                     >
                                         {proj.category}
                                     </span>
                                 </div>
-                                <p className="text-brand-muted text-sm leading-relaxed mb-4">{proj.description}</p>
-                                <div className="flex flex-wrap gap-1.5">
+                                <p className="text-brand-muted text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3">{proj.description}</p>
+                                <div className="flex flex-wrap gap-1">
                                     {proj.tags.map((tag) => (
                                         <motion.span
                                             key={tag}

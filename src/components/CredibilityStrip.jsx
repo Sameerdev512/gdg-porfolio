@@ -15,7 +15,7 @@ export default function CredibilityStrip() {
     const inView = useInView(ref, { once: true, margin: '-50px' })
 
     return (
-        <section className="py-16 border-y border-brand-border relative overflow-hidden">
+        <section className="py-12 sm:py-14 md:py-16 border-y border-brand-border relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-dark opacity-80" />
 
             {/* Subtle scanning line */}
@@ -25,9 +25,9 @@ export default function CredibilityStrip() {
                 transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
             />
 
-            <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6">
+            <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-5 md:px-6">
                 <motion.div
-                    className="grid grid-cols-2 md:grid-cols-4 gap-8"
+                    className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
                     variants={staggerContainer(0.12, 0)}
                     initial="hidden"
                     animate={inView ? 'show' : 'hidden'}

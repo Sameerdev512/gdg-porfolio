@@ -139,7 +139,7 @@ export default function Hero() {
 
             {/* ── Content */}
             <motion.div
-                className="relative z-20 max-w-7xl mx-auto px-6 text-center flex flex-col items-center gap-7"
+                className="relative z-20 max-w-7xl mx-auto px-4 sm:px-5 md:px-6 text-center flex flex-col items-center gap-5 sm:gap-6 md:gap-7"
                 style={{ opacity: heroOpacity, y: heroY }}
             >
                 {/* Authority badge */}
@@ -159,7 +159,7 @@ export default function Hero() {
                     variants={nameContainer}
                     initial="hidden"
                     animate="show"
-                    className="flex flex-wrap justify-center items-center leading-none"
+                    className="flex flex-wrap justify-center items-center leading-none px-2 sm:px-4"
                 >
                     {NAME_CHARS.map((char, i) => {
                         const origin = CHAR_ORIGINS[i] || { x: 0, y: 0 }
@@ -178,9 +178,9 @@ export default function Hero() {
                                 }}
                                 className={`
                   font-display font-black
-                  text-6xl md:text-8xl lg:text-[7.5rem]
+                  text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-[7.5rem]
                   tracking-tight
-                  ${isSpace ? 'mx-4' : ''}
+                  ${isSpace ? 'mx-1 sm:mx-2 md:mx-4' : ''}
                   ${isSecondWord ? 'gradient-text' : 'text-brand-text'}
                   inline-block
                 `}
@@ -197,9 +197,9 @@ export default function Hero() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.2, duration: 0.6 }}
-                    className="flex items-center gap-2 h-10"
+                    className="flex items-center gap-2 h-8 sm:h-10 px-2 sm:px-4"
                 >
-                    <span className="text-xl md:text-2xl text-brand-muted font-light tracking-wide">
+                    <span className="text-sm sm:text-lg md:text-xl text-brand-muted font-light tracking-wide">
                         {displayText}
                     </span>
                     <motion.span
@@ -214,7 +214,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.4, duration: 0.6, ease: EASE.out }}
-                    className="text-lg md:text-xl text-brand-muted max-w-2xl leading-relaxed font-light"
+                    className="text-xs sm:text-sm md:text-base lg:text-lg text-brand-muted max-w-2xl leading-relaxed font-light px-2 sm:px-4"
                 >
                     Architecting{' '}
                     <span className="text-brand-primary font-medium">scalable web systems</span>
@@ -227,12 +227,12 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.6, duration: 0.6, ease: EASE.out }}
-                    className="flex flex-col sm:flex-row gap-4"
+                    className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 md:gap-4 w-full sm:w-auto px-2 sm:px-4"
                 >
                     <motion.a
                         href="#projects"
                         onClick={e => { e.preventDefault(); document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' }) }}
-                        className="btn-primary text-base px-8 py-3.5"
+                        className="btn-primary text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5"
                         whileHover={{ scale: 1.04, y: -2, boxShadow: '0 0 32px rgba(79,157,255,0.4)' }}
                         whileTap={{ scale: 0.97 }}
                         data-hover="true"
@@ -244,7 +244,7 @@ export default function Hero() {
                     </motion.a>
                     <motion.a
                         href="mailto:sameerkhatri5050@gmail.com"
-                        className="btn-outline text-base px-8 py-3.5"
+                        className="btn-outline text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-3.5"
                         whileHover={{ scale: 1.04, y: -2 }}
                         whileTap={{ scale: 0.97 }}
                         data-hover="true"

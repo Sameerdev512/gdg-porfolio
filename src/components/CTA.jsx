@@ -9,33 +9,33 @@ export default function CTA() {
     const inView = useInView(ref, { once: true, margin: '-80px' })
 
     return (
-        <section id="cta" className="py-32 relative overflow-hidden">
+        <section id="cta" className="py-16 sm:py-20 md:py-24 lg:py-32 relative overflow-hidden">
             {/* Ambient glow */}
             <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(79,157,255,0.1) 0%, transparent 70%)' }} />
             <motion.div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] md:w-[600px] h-[300px] sm:h-[500px] md:h-[600px] rounded-full"
                 style={{ background: 'rgba(79,157,255,0.04)', filter: 'blur(100px)' }}
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
             />
 
-            <div ref={ref} className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <div ref={ref} className="relative z-10 max-w-4xl mx-auto px-4 sm:px-5 md:px-6 text-center">
                 {/* Status chip */}
-                <motion.div {...scrollRevealScale(0)} className="flex justify-center mb-8">
-                    <div className="flex items-center gap-3 px-4 py-2 rounded-full border border-brand-border bg-brand-bg/60 backdrop-blur-sm">
+                <motion.div {...scrollRevealScale(0)} className="flex justify-center mb-6 sm:mb-8">
+                    <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 rounded-full border border-brand-border bg-brand-bg/60 backdrop-blur-sm">
                         <div className="flex items-center gap-2">
                             <span className="glow-dot" />
-                            <span className="text-green-400 text-sm font-medium">Available for Hire</span>
+                            <span className="text-green-400 text-xs sm:text-sm font-medium">Available for Hire</span>
                         </div>
-                        <div className="w-px h-4 bg-brand-border" />
-                        <span className="text-brand-muted text-sm">Open to full-time & freelance</span>
+                        <div className="hidden sm:block w-px h-4 bg-brand-border" />
+                        <span className="text-brand-muted text-xs sm:text-sm">Open to full-time & freelance</span>
                     </div>
                 </motion.div>
 
                 {/* Main Headline */}
                 <motion.h2
                     {...scrollRevealScale(0.1)}
-                    className="font-display font-black text-5xl md:text-7xl text-brand-text leading-tight mb-6"
+                    className="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-brand-text leading-tight mb-4 sm:mb-6"
                 >
                     Let's Build{' '}
                     <span className="gradient-text block">Something Meaningful.</span>
@@ -44,7 +44,7 @@ export default function CTA() {
                 {/* Supporting copy */}
                 <motion.p
                     {...scrollRevealScale(0.2)}
-                    className="text-brand-muted text-xl max-w-2xl mx-auto leading-relaxed mb-10"
+                    className="text-brand-muted text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10"
                 >
                     Whether you're launching a product, scaling a business, or need a frontend engineer who thinks in outcomes — I'm ready to contribute from day one.
                 </motion.p>
@@ -52,11 +52,11 @@ export default function CTA() {
                 {/* CTAs */}
                 <motion.div
                     {...scrollRevealScale(0.3)}
-                    className="flex flex-col sm:flex-row gap-4 justify-center"
+                    className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
                 >
                     <motion.a
                         href="mailto:sameerkhatri5050@gmail.com"
-                        className="btn-primary text-base px-8 py-4"
+                        className="btn-primary text-xs sm:text-sm md:text-base px-5 sm:px-8 py-2.5 sm:py-4"
                         whileHover={{ scale: 1.04, boxShadow: '0 0 40px rgba(79,157,255,0.4)' }}
                         whileTap={{ scale: 0.97 }}
                     >
@@ -68,7 +68,7 @@ export default function CTA() {
                     <motion.a
                         href={resumePDF}
                         download="Sameer_Khatri_Resume.pdf"
-                        className="btn-outline text-base px-8 py-4"
+                        className="btn-outline text-xs sm:text-sm md:text-base px-5 sm:px-8 py-2.5 sm:py-4"
                         whileHover={{ scale: 1.04 }}
                         whileTap={{ scale: 0.97 }}
                     >

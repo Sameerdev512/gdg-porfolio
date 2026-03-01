@@ -104,7 +104,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.75rem 2rem;
+    padding: 0.75rem 1.5rem;
     background: linear-gradient(135deg, #4F9DFF, #7C5CFF);
     color: white;
     font-weight: 600;
@@ -116,6 +116,12 @@
     overflow: hidden;
     transition: all 0.3s ease;
     text-decoration: none;
+  }
+
+  @media (min-width: 640px) {
+    .btn-primary {
+      padding: 0.75rem 2rem;
+    }
   }
 
   .btn-primary::before {
@@ -148,7 +154,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.75rem 2rem;
+    padding: 0.75rem 1.5rem;
     background: transparent;
     color: #F3F4F6;
     font-weight: 600;
@@ -158,6 +164,12 @@
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
+  }
+
+  @media (min-width: 640px) {
+    .btn-outline {
+      padding: 0.75rem 2rem;
+    }
   }
 
   .btn-outline:hover {

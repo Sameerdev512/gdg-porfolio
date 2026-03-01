@@ -65,31 +65,28 @@ export default function About() {
     }, []);
 
     return (
-        <section id="about" className="py-28 relative overflow-hidden">
+        <section id="about" className="py-12 sm:py-16 md:py-20 lg:py-28 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-section" />
-            <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6">
+            <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-5 md:px-6">
                 {/* Header */}
-                <motion.div
-                    {...scrollRevealScale(0)}
-                    className="text-center mb-16"
-                >
-                    <span className="section-label mb-4 inline-flex font-mono text-xs">
+                <motion.div {...scrollRevealScale(0)} className="text-center mb-10 sm:mb-12 md:mb-16 px-0">
+                    <span className="section-label mb-2 sm:mb-3 inline-flex font-mono text-xs">
                         <span className="text-brand-primary/60 mr-1">//</span>
                         about.journey
                     </span>
-                    <h2 className="font-display font-black text-5xl md:text-6xl text-brand-text mt-4">
+                    <h2 className="font-display font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-brand-text mt-2 sm:mt-3 md:mt-4">
                         From{' '}
                         <span className="gradient-text">Foundations</span>
                         {' '}to{' '}
                         <span className="gradient-text-static">Production</span>
                     </h2>
-                    <p className="text-brand-muted mt-4 max-w-xl mx-auto text-lg leading-relaxed">
+                    <p className="text-brand-muted mt-2 sm:mt-3 md:mt-4 max-w-lg mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-0">
                         A deliberate progression — not just accumulating skills, but building the judgment to apply them at scale.
                     </p>
                 </motion.div>
 
                 {/* Journey Spine Line */}
-                <div className="absolute left-1/2 top-36 md:top-44 -translate-x-1/2 h-[500px] md:h-[650px] w-8 pointer-events-none z-0" ref={spineRef}>
+                <div className="hidden md:block absolute left-1/2 top-36 md:top-44 -translate-x-1/2 h-[500px] md:h-[650px] w-8 pointer-events-none z-0" ref={spineRef}>
                     <motion.div
                         style={{
                             position: 'absolute',
@@ -109,7 +106,7 @@ export default function About() {
 
                 {/* Journey Grid */}
                 <motion.div
-                    className="grid md:grid-cols-2 gap-6 relative z-10"
+                    className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-5 lg:gap-6 relative z-10"
                     variants={staggerContainer(0.1)}
                     initial="hidden"
                     animate={inView ? 'show' : 'hidden'}
@@ -121,7 +118,7 @@ export default function About() {
                                 hidden: { opacity: 0, y: 40 },
                                 show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE.out } },
                             }}
-                            className="glass-card rounded-2xl p-7 group relative overflow-hidden"
+                            className="glass-card rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 group relative overflow-hidden"
                             whileHover={{ y: -5, transition: { duration: 0.22 } }}
                         >
                             {/* Phase accent line */}
@@ -130,10 +127,10 @@ export default function About() {
                                 style={{ background: `linear-gradient(90deg, ${p.color}, transparent)` }}
                             />
 
-                            <div className="flex items-start gap-5">
+                            <div className="flex items-start gap-2.5 sm:gap-3 md:gap-5">
                                 <div className="flex-shrink-0">
                                     <div
-                                        className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
+                                        className="w-9 sm:w-10 md:w-12 h-9 sm:h-10 md:h-12 rounded-lg sm:rounded-xl flex items-center justify-center text-lg sm:text-xl md:text-2xl"
                                         style={{ background: `${p.color}15`, border: `1px solid ${p.color}30` }}
                                     >
                                         {p.icon}
@@ -141,21 +138,21 @@ export default function About() {
                                 </div>
 
                                 <div className="flex-1 min-w-0">
-                                    <div className="flex items-center gap-3 mb-2">
+                                    <div className="flex items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2 flex-wrap">
                                         <span
-                                            className="text-xs font-bold uppercase tracking-widest"
+                                            className="text-xs font-bold uppercase tracking-widest whitespace-nowrap"
                                             style={{ color: p.color }}
                                         >
                                             Phase {p.phase}
                                         </span>
-                                        <span className="text-brand-border">·</span>
+                                        <span className="text-brand-border text-xs sm:text-sm">·</span>
                                         <span className="text-brand-muted text-xs">{p.year}</span>
                                     </div>
-                                    <h3 className="font-display font-bold text-xl text-brand-text mb-3">{p.title}</h3>
-                                    <p className="text-brand-muted text-sm leading-relaxed mb-4">{p.description}</p>
-                                    <div className="flex flex-wrap gap-2">
+                                    <h3 className="font-display font-bold text-sm sm:text-base md:text-lg lg:text-xl text-brand-text mb-1.5 sm:mb-2 md:mb-3 line-clamp-2">{p.title}</h3>
+                                    <p className="text-brand-muted text-xs sm:text-sm leading-relaxed mb-2.5 sm:mb-3 md:mb-4 line-clamp-3 sm:line-clamp-4">{p.description}</p>
+                                    <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2">
                                         {p.tags.map((tag) => (
-                                            <span key={tag} className="skill-tag">{tag}</span>
+                                            <span key={tag} className="skill-tag text-xs">{tag}</span>
                                         ))}
                                     </div>
                                 </div>
@@ -167,23 +164,23 @@ export default function About() {
                 {/* Profile Card */}
                 <motion.div
                     {...scrollRevealScale(0.3)}
-                    className="mt-12 glass-card rounded-2xl p-8 flex flex-col md:flex-row items-center gap-8"
+                    className="mt-12 sm:mt-14 md:mt-16 lg:mt-20 glass-card rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 flex flex-col md:flex-row items-center gap-4 sm:gap-6 md:gap-8"
                 >
-                    <div className="w-24 h-24 rounded-full bg-gradient-brand flex items-center justify-center flex-shrink-0 shadow-glow-primary">
-                        <span className="font-display font-black text-3xl text-white">SK</span>
+                    <div className="w-20 sm:w-24 md:w-28 h-20 sm:h-24 md:h-28 rounded-full bg-gradient-brand flex items-center justify-center flex-shrink-0 shadow-glow-primary">
+                        <span className="font-display font-black text-2xl sm:text-3xl md:text-4xl text-white">SK</span>
                     </div>
-                    <div className="text-center md:text-left">
-                        <h3 className="font-display font-bold text-2xl text-brand-text">Sameer Khatri</h3>
-                        <p className="text-brand-primary font-medium mt-1">Frontend Engineer · React Developer · Agency Founder</p>
-                        <p className="text-brand-muted text-sm mt-2 max-w-lg leading-relaxed">
+                    <div className="text-center md:text-left flex-1 min-w-0">
+                        <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl text-brand-text">Sameer Khatri</h3>
+                        <p className="text-brand-primary font-medium text-xs sm:text-sm mt-1">Frontend Engineer · React Developer · Agency Founder</p>
+                        <p className="text-brand-muted text-xs sm:text-sm mt-2 md:mt-3 max-w-lg leading-relaxed">
                             B.Tech CSE — IPS Academy, Indore. Currently on internship at Datacode. Building client-facing digital products through my web agency while co-building the GRID developer community.
                         </p>
                     </div>
-                    <div className="flex gap-4 md:ml-auto">
+                    <div className="flex gap-2.5 sm:gap-3 md:gap-4 md:ml-auto w-full md:w-auto justify-center md:justify-start flex-shrink-0">
                         <a
                             href="#contact"
                             onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
-                            className="btn-primary text-sm px-5 py-2.5"
+                            className="btn-primary text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 whitespace-nowrap"
                         >
                             <span>Let's Connect</span>
                         </a>

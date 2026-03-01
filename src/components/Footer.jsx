@@ -26,25 +26,25 @@ export default function Footer() {
     return (
         <footer className="border-t border-brand-border pt-16 pb-8 relative">
             <div className="absolute inset-0 bg-gradient-dark opacity-50" />
-            <div className="relative z-10 max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-5 md:px-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10 mb-10 sm:mb-12">
                     {/* Brand */}
-                    <div className="md:col-span-2 space-y-4">
+                    <div className="sm:col-span-2 md:col-span-2 space-y-3 sm:space-y-4">
                         <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center shadow-glow-primary">
-                                <span className="text-white font-bold text-sm font-display">SK</span>
+                            <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-lg bg-gradient-brand flex items-center justify-center shadow-glow-primary">
+                                <span className="text-white font-bold text-xs sm:text-sm font-display">SK</span>
                             </div>
-                            <span className="font-display font-bold text-brand-text text-lg flex items-center gap-1">
+                            <span className="font-display font-bold text-brand-text text-base sm:text-lg flex items-center gap-1">
                                 <span className="inline-block align-middle">Sameer</span>
                                 <span className="gradient-text-static">.</span>
-                                <span className="inline-block align-middle text-xl" title="Web Engineer">⚡</span>
+                                <span className="inline-block align-middle text-lg sm:text-xl" title="Web Engineer">⚡</span>
                             </span>
                         </div>
-                        <p className="text-brand-muted text-sm leading-relaxed max-w-xs">
+                        <p className="text-brand-muted text-xs sm:text-sm leading-relaxed max-w-xs">
                             Software Engineer, React Developer & Agency Founder building scalable web experiences and intelligent digital products from Indore, India.
                         </p>
                         <div className="flex items-center gap-2 text-xs text-brand-muted">
-                            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                            <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-green-400 rounded-full animate-pulse" />
                             <span>Available for opportunities</span>
                         </div>
                     </div>
@@ -52,8 +52,8 @@ export default function Footer() {
                     {/* Links */}
                     {Object.entries(footerLinks).map(([group, links]) => (
                         <div key={group}>
-                            <h4 className="text-brand-text font-semibold text-sm uppercase tracking-wider mb-4">{group}</h4>
-                            <ul className="space-y-3">
+                            <h4 className="text-brand-text font-semibold text-xs sm:text-sm uppercase tracking-wider mb-3 sm:mb-4">{group}</h4>
+                            <ul className="space-y-2 sm:space-y-3">
                                 {links.map((link) => (
                                     <li key={link.label}>
                                         {link.href.startsWith('#') ? (

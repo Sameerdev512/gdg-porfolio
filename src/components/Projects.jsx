@@ -59,8 +59,8 @@ function ProjectPanel({ project, index, inView }) {
                     transition: { duration: 0.35, ease: EASE.out },
                 }}
                 className={`
-          glass-card rounded-3xl overflow-hidden group cursor-pointer relative
-          ${project.size === 'large' ? 'col-span-2' : 'col-span-1'}
+          glass-card rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden group cursor-pointer relative
+          ${project.size === 'large' ? 'md:col-span-2' : 'md:col-span-1'}
         `}
                 style={{ willChange: 'transform', transformStyle: 'preserve-3d' }}
                 onClick={() => setExpanded(true)}
@@ -71,8 +71,8 @@ function ProjectPanel({ project, index, inView }) {
 
                 {/* Top banner area */}
                 <div
-                    className={`bg-gradient-to-br ${project.gradient} flex items-center justify-between p-8 relative overflow-hidden`}
-                    style={{ minHeight: project.size === 'large' ? 180 : 140 }}
+                    className={`bg-gradient-to-br ${project.gradient} flex items-center justify-between p-3 sm:p-5 md:p-8 relative overflow-hidden`}
+                    style={{ minHeight: project.size === 'large' ? 110 : 100 }}
                 >
                     {/* Background pattern */}
                     <div className="absolute inset-0 opacity-5"
@@ -83,9 +83,9 @@ function ProjectPanel({ project, index, inView }) {
                     />
 
                     <div className="relative z-10">
-                        <div className="flex items-center gap-3 mb-3">
+                        <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                             <motion.span
-                                className="text-5xl"
+                                className="text-3xl sm:text-4xl md:text-5xl"
                                 whileHover={{ scale: 1.2, rotate: 10 }}
                                 transition={{ type: 'spring', stiffness: 300, damping: 15 }}
                             >
@@ -98,8 +98,8 @@ function ProjectPanel({ project, index, inView }) {
                                 </span>
                             </div>
                         </div>
-                        <h3 className="font-display font-black text-2xl md:text-3xl text-white">{project.name}</h3>
-                        <p className="text-white/60 text-sm mt-1">{project.tagline}</p>
+                        <h3 className="font-display font-black text-base sm:text-xl md:text-2xl lg:text-3xl text-white">{project.name}</h3>
+                        <p className="text-white/60 text-xs sm:text-sm mt-0.5 sm:mt-1">{project.tagline}</p>
                     </div>
 
                     {/* "Expand" hint */}
@@ -116,7 +116,7 @@ function ProjectPanel({ project, index, inView }) {
                 </div>
 
                 {/* Stack tags */}
-                <div className="px-8 py-5 flex flex-wrap gap-2">
+                <div className="px-3 sm:px-5 md:px-8 py-3 sm:py-4 md:py-5 flex flex-wrap gap-1.5 sm:gap-2">
                     {project.stack.map(s => (
                         <span key={s} className="skill-tag text-xs">{s}</span>
                     ))}
@@ -135,7 +135,7 @@ function ProjectPanel({ project, index, inView }) {
                             onClick={() => setExpanded(false)}
                         />
                         <motion.div
-                            className="fixed inset-4 md:inset-16 z-50 glass-card rounded-3xl overflow-auto"
+                            className="fixed inset-1 sm:inset-2 md:inset-4 lg:inset-16 z-50 glass-card rounded-xl sm:rounded-2xl md:rounded-3xl overflow-auto"
                             initial={{ opacity: 0, scale: 0.92, y: 40 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.94, y: 20 }}
@@ -145,28 +145,28 @@ function ProjectPanel({ project, index, inView }) {
                             {/* Close */}
                             <button
                                 onClick={() => setExpanded(false)}
-                                className="absolute top-6 right-6 w-10 h-10 glass rounded-full flex items-center justify-center text-brand-muted hover:text-brand-text transition-colors z-10"
+                                className="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 w-8 sm:w-10 h-8 sm:h-10 glass rounded-full flex items-center justify-center text-brand-muted hover:text-brand-text transition-colors z-10 text-sm sm:text-base"
                             >
                                 ✕
                             </button>
 
                             {/* Header */}
-                            <div className={`bg-gradient-to-br ${project.gradient} p-10 relative overflow-hidden`}>
+                            <div className={`bg-gradient-to-br ${project.gradient} p-6 sm:p-10 relative overflow-hidden`}>
                                 <div className="absolute inset-0 opacity-5"
                                     style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)', backgroundSize: '24px 24px' }}
                                 />
-                                <div className="relative z-10 flex items-start gap-5">
-                                    <span className="text-6xl">{project.emoji}</span>
+                                <div className="relative z-10 flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
+                                    <span className="text-5xl sm:text-6xl">{project.emoji}</span>
                                     <div>
-                                        <h2 className="font-display font-black text-4xl text-white">{project.name}</h2>
-                                        <p className="text-white/60 text-lg mt-1">{project.tagline}</p>
+                                        <h2 className="font-display font-black text-2xl sm:text-3xl md:text-4xl text-white">{project.name}</h2>
+                                        <p className="text-white/60 text-base sm:text-lg mt-1">{project.tagline}</p>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Case study details */}
-                            <div className="p-10">
-                                <div className="grid md:grid-cols-3 gap-6 mb-8">
+                            <div className="p-6 sm:p-10">
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
                                     {[
                                         { label: '🎯 Challenge', text: project.challenge },
                                         { label: '⚙️ Approach', text: project.approach },
@@ -180,11 +180,11 @@ function ProjectPanel({ project, index, inView }) {
                                     ))}
                                 </div>
 
-                                <div className="flex flex-wrap gap-2 mb-8">
+                                <div className="flex flex-wrap gap-2 mb-6 sm:mb-8">
                                     {project.stack.map(s => (<span key={s} className="skill-tag">{s}</span>))}
                                 </div>
 
-                                <div className="flex gap-4">
+                                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                                     <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn-outline px-6 py-2.5 text-sm">Source Code</a>
                                     <a href={project.live} className="btn-primary px-6 py-2.5 text-sm">Live Demo</a>
                                 </div>
@@ -202,26 +202,26 @@ export default function Projects() {
     const inView = useInView(ref, { once: true, margin: '-80px' })
 
     return (
-        <section id="projects" className="py-28 relative overflow-hidden">
+        <section id="projects" className="py-12 sm:py-16 md:py-20 lg:py-28 relative overflow-hidden">
             {/* Chapter atmosphere */}
             <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 30% 50%, rgba(79,157,255,0.06) 0%, transparent 60%)' }} />
 
-            <div ref={ref} className="relative z-10 max-w-6xl mx-auto px-6">
-                <motion.div {...scrollRevealScale(0)} className="mb-14">
-                    <span className="section-label mb-4 inline-flex font-mono text-xs">
+            <div ref={ref} className="relative z-10 max-w-6xl mx-auto px-4 sm:px-5 md:px-6">
+                <motion.div {...scrollRevealScale(0)} className="mb-10 sm:mb-12 md:mb-14 px-0">
+                    <span className="section-label mb-2 sm:mb-3 inline-flex font-mono text-xs">
                         <span className="text-brand-primary/60 mr-1">//</span>
                         projects.caseStudies
                     </span>
-                    <h2 className="font-display font-black text-5xl md:text-6xl text-brand-text mt-4">
+                    <h2 className="font-display font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-brand-text mt-2 sm:mt-3 md:mt-4">
                         Problems{' '}<span className="gradient-text">Solved.</span>
                     </h2>
-                    <p className="text-brand-muted mt-4 max-w-lg text-lg">
+                    <p className="text-brand-muted mt-2 sm:mt-3 md:mt-4 max-w-lg text-sm sm:text-base md:text-lg">
                         Click any panel to enter spotlight mode — full Challenge / Approach / Outcome breakdown.
                     </p>
                 </motion.div>
 
                 {/* Asymmetric gallery grid */}
-                <div className="grid grid-cols-3 gap-6 items-start">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 items-start">
                     {PROJECTS.map((p, i) => (
                         <ProjectPanel key={p.id} project={p} index={i} inView={inView} />
                     ))}

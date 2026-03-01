@@ -18,26 +18,26 @@ export default function ProofOfWork() {
     const inView = useInView(ref, { once: true, margin: '-80px' })
 
     return (
-        <section id="proof" className="py-28 relative overflow-hidden">
+        <section id="proof" className="py-12 sm:py-16 md:py-20 lg:py-28 relative overflow-hidden">
             <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(79,157,255,0.06) 0%, transparent 50%)' }} />
 
-            <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6">
-                <motion.div {...scrollRevealScale(0)} className="text-center mb-16">
-                    <span className="section-label mb-4 inline-flex font-mono text-xs">
+            <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-5 md:px-6">
+                <motion.div {...scrollRevealScale(0)} className="text-center mb-10 sm:mb-12 md:mb-14 md:mb-16">
+                    <span className="section-label mb-2 sm:mb-3 inline-flex font-mono text-xs">
                         <span className="text-brand-primary/60 mr-1">//</span>
                         proof.verified[ ]
                     </span>
-                    <h2 className="font-display font-black text-5xl md:text-6xl text-brand-text mt-4">
+                    <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-brand-text mt-2 sm:mt-3 md:mt-4">
                         Verified <span className="gradient-text">Achievements</span>
                     </h2>
-                    <p className="text-brand-muted mt-4 max-w-xl mx-auto text-lg">
+                    <p className="text-brand-muted mt-2 sm:mt-3 md:mt-4 max-w-xl mx-auto text-sm sm:text-base md:text-lg">
                         Certifications, awards, and milestones that validate the craft.
                     </p>
                 </motion.div>
 
                 {/* Achievement Unlock Grid */}
                 <motion.div
-                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
                     variants={staggerContainer(0.09)}
                     initial="hidden"
                     animate={inView ? 'show' : 'hidden'}
@@ -52,7 +52,7 @@ export default function ProofOfWork() {
                                     transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
                                 },
                             }}
-                            className="glass-card rounded-2xl p-6 group relative overflow-hidden cursor-default"
+                            className="glass-card rounded-lg sm:rounded-2xl p-4 sm:p-6 group relative overflow-hidden cursor-default"
                             whileHover={{
                                 y: -6, scale: 1.02,
                                 boxShadow: `0 20px 48px ${a.color}18`,

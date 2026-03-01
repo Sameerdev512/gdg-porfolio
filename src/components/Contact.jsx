@@ -109,7 +109,7 @@ export default function Contact() {
     }
 
     return (
-        <section id="contact" className="py-28 relative overflow-hidden">
+        <section id="contact" className="py-12 sm:py-16 md:py-20 lg:py-28 relative overflow-hidden">
             {/* Chapter atmosphere — darkest, most immersive */}
             <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 70% 50%, rgba(124,92,255,0.07) 0%, transparent 60%), radial-gradient(ellipse at 30% 50%, rgba(79,157,255,0.05) 0%, transparent 60%)' }} />
 
@@ -129,28 +129,28 @@ export default function Contact() {
                 />
             ))}
 
-            <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6">
-                <motion.div {...scrollRevealScale(0)} className="text-center mb-16">
-                    <span className="section-label mb-4 inline-flex font-mono text-xs">
+            <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-5 md:px-6">
+                <motion.div {...scrollRevealScale(0)} className="text-center mb-10 sm:mb-12 md:mb-14 lg:mb-16">
+                    <span className="section-label mb-2 sm:mb-3 inline-flex font-mono text-xs">
                         <span className="text-brand-primary/60 mr-1">//</span>
                         contact.init()
                     </span>
-                    <h2 className="font-display font-black text-5xl md:text-6xl text-brand-text mt-4">
+                    <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-brand-text mt-2 sm:mt-3 md:mt-4">
                         Say <span className="gradient-text">Hello.</span>
                     </h2>
-                    <p className="text-brand-muted mt-4 max-w-xl mx-auto text-lg">
+                    <p className="text-brand-muted mt-2 sm:mt-3 md:mt-4 max-w-xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed">
                         Whether you have a project, an opportunity, or just want to connect — the terminal is open.
                     </p>
                 </motion.div>
 
-                <div className="grid lg:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
                     {/* Contact links */}
                     <div>
-                        <motion.h3 {...scrollRevealLeft(0.1)} className="font-display font-bold text-xl text-brand-text mb-6">
+                        <motion.h3 {...scrollRevealLeft(0.1)} className="font-display font-bold text-lg sm:text-xl text-brand-text mb-4 sm:mb-6">
                             Find Me Here
                         </motion.h3>
                         <motion.div
-                            className="space-y-3"
+                            className="space-y-2.5 sm:space-y-3"
                             variants={staggerContainer(0.08)}
                             initial="hidden"
                             animate={inView ? 'show' : 'hidden'}
@@ -165,25 +165,25 @@ export default function Contact() {
                                         hidden: { opacity: 0, x: -24 },
                                         show: { opacity: 1, x: 0, transition: { duration: 0.45, ease: EASE.out } },
                                     }}
-                                    className="flex items-center gap-4 p-4 glass-card rounded-xl group"
+                                    className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 glass-card rounded-lg sm:rounded-xl group"
                                     whileHover={{ x: 6, transition: { duration: 0.2 } }}
                                     data-hover="true"
                                 >
                                     <motion.div
-                                        className="w-10 h-10 rounded-lg bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-xl flex-shrink-0"
+                                        className="w-9 sm:w-10 h-9 sm:h-10 rounded-lg bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-lg sm:text-xl flex-shrink-0"
                                         whileHover={{ scale: 1.15, rotate: 8 }}
                                         transition={{ duration: 0.2 }}
                                     >
                                         {link.icon}
                                     </motion.div>
-                                    <div>
+                                    <div className="flex-1 min-w-0">
                                         <p className="text-brand-muted text-xs uppercase tracking-wider font-medium">{link.label}</p>
-                                        <p className="text-brand-text text-sm font-medium mt-0.5 group-hover:text-brand-primary transition-colors duration-200 font-mono">
+                                        <p className="text-brand-text text-xs sm:text-sm font-medium mt-0.5 group-hover:text-brand-primary transition-colors duration-200 font-mono truncate">
                                             {link.value}
                                         </p>
                                     </div>
                                     <motion.svg
-                                        className="w-4 h-4 text-brand-muted ml-auto"
+                                        className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-brand-muted ml-2 flex-shrink-0"
                                         fill="none" viewBox="0 0 24 24" stroke="currentColor"
                                         initial={{ opacity: 0, x: -4 }}
                                         whileHover={{ opacity: 1, x: 0 }}
@@ -199,31 +199,31 @@ export default function Contact() {
                     {/* Terminal Form */}
                     <motion.div {...scrollRevealRight(0.2)}>
                         <form onSubmit={handleSubmit}
-                            className="rounded-2xl overflow-hidden"
+                            className="rounded-lg sm:rounded-2xl overflow-hidden"
                             style={{ background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(79,157,255,0.15)', backdropFilter: 'blur(16px)' }}
                         >
                             {/* Terminal title bar */}
-                            <div className="flex items-center gap-2 px-5 py-3 border-b border-white/[0.06]"
+                            <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-3 border-b border-white/[0.06]"
                                 style={{ background: 'rgba(255,255,255,0.02)' }}>
-                                <div className="w-3 h-3 rounded-full bg-red-500/60" />
-                                <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
-                                <div className="w-3 h-3 rounded-full bg-green-500/60" />
-                                <span className="ml-3 text-brand-muted text-xs font-mono">contact.sh</span>
+                                <div className="w-2 sm:w-3 h-2 sm:h-3 rounded-full bg-red-500/60" />
+                                <div className="w-2 sm:w-3 h-2 sm:h-3 rounded-full bg-yellow-500/60" />
+                                <div className="w-2 sm:w-3 h-2 sm:h-3 rounded-full bg-green-500/60" />
+                                <span className="ml-2 sm:ml-3 text-brand-muted text-xs font-mono">contact.sh</span>
                             </div>
 
-                            <div className="p-6 space-y-4">
+                            <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
                                 {/* Greeting line */}
-                                <div className="flex items-center gap-2 text-xs font-mono text-brand-muted mb-2">
-                                    <span className="text-brand-primary">$</span>
-                                    <span>init_conversation --mode=professional</span>
+                                <div className="flex items-center gap-1 sm:gap-2 text-xs font-mono text-brand-muted mb-2 sm:mb-3 overflow-x-auto">
+                                    <span className="text-brand-primary flex-shrink-0">$</span>
+                                    <span className="truncate">init_conversation --mode=professional</span>
                                     <motion.span
-                                        className="w-1.5 h-3.5 bg-brand-primary inline-block ml-1"
+                                        className="w-1 sm:w-1.5 h-3 sm:h-3.5 bg-brand-primary inline-block ml-1 flex-shrink-0"
                                         animate={{ opacity: [1, 0, 1] }}
                                         transition={{ duration: 1, repeat: 3 }}
                                     />
                                 </div>
 
-                                <div className="grid grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                                     <TerminalInput label="Your Name" required value={form.name}
                                         onChange={e => setForm({ ...form, name: e.target.value })} placeholder="John Doe" />
                                     <TerminalInput label="Email" type="email" required value={form.email}
@@ -237,7 +237,7 @@ export default function Contact() {
                                 {/* Submit */}
                                 <motion.button
                                     type="submit"
-                                    className="w-full py-3 rounded-lg font-mono text-sm font-bold relative overflow-hidden"
+                                    className="w-full py-2.5 sm:py-3 rounded-lg font-mono text-xs sm:text-sm font-bold relative overflow-hidden"
                                     style={{
                                         background: 'linear-gradient(135deg, rgba(79,157,255,0.15), rgba(124,92,255,0.15))',
                                         border: '1px solid rgba(79,157,255,0.3)',
@@ -254,7 +254,7 @@ export default function Contact() {
                                         whileHover={{ translateX: '200%' }}
                                         transition={{ duration: 0.6 }}
                                     />
-                                    <span className="relative z-10">
+                                    <span className="relative z-10 truncate">
                                         {sent ? '// message transmitted ✓' : submitting ? '// sending...' : '$ send_message --async'}
                                     </span>
                                 </motion.button>
@@ -263,7 +263,7 @@ export default function Contact() {
                                     <motion.p
                                         initial={{ opacity: 0, y: 8 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        className="text-center text-green-400 text-xs font-mono"
+                                        className="text-center text-green-400 text-xs font-mono leading-relaxed"
                                     >
                     // email_client.open() → success. Looking forward to connecting 🙌
                                     </motion.p>

@@ -15,49 +15,49 @@ export default function Founder() {
     ]
 
     return (
-        <section id="founder" className="py-28 relative overflow-hidden">
+        <section id="founder" className="py-12 sm:py-16 md:py-20 lg:py-28 relative overflow-hidden">
             {/* Background */}
             <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(124,92,255,0.07) 0%, transparent 60%)' }} />
 
-            <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-5 md:px-6">
+                <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
                     {/* Left: Content */}
                     <div>
                         <motion.div
                             {...scrollRevealLeft(0)}
-                            className="space-y-6"
+                            className="space-y-4 sm:space-y-6"
                         >
-                            <span className="section-label">🏗️ Founder's Perspective</span>
-                            <h2 className="font-display font-black text-5xl md:text-6xl text-brand-text leading-tight mt-4">
+                            <span className="section-label text-sm sm:text-base">🏗️ Founder's Perspective</span>
+                            <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-brand-text leading-tight mt-2 sm:mt-4">
                                 Creating{' '}
                                 <span className="gradient-text">Real Value</span>
                                 {' '}Through Code
                             </h2>
-                            <p className="text-brand-muted text-lg leading-relaxed">
+                            <p className="text-brand-muted text-sm sm:text-base md:text-lg leading-relaxed">
                                 Engineering skills without business thinking builds features, not products. I founded a digital agency to bridge that gap — building infrastructure and processes to deliver outcomes that matter.
                             </p>
-                            <p className="text-brand-muted leading-relaxed">
+                            <p className="text-brand-muted text-sm sm:text-base leading-relaxed">
                                 Currently building the foundation: developing case studies, refining service delivery, and creating systems for scalable growth. Ready to partner with forward-thinking brands that need a builder, not just a developer.
                             </p>
 
-                            <div className="flex items-center gap-6 pt-4">
+                            <div className="flex flex-col xs:flex-row items-center gap-3 sm:gap-6 pt-4">
                                 <div className="text-center">
-                                    <div className="font-display font-black text-4xl gradient-text-static">1</div>
-                                    <div className="text-brand-muted text-sm mt-1">Agency Founded</div>
+                                    <div className="font-display font-black text-2xl sm:text-4xl gradient-text-static">1</div>
+                                    <div className="text-brand-muted text-xs sm:text-sm mt-1">Agency Founded</div>
                                 </div>
-                                <div className="w-px h-12 bg-brand-border" />
+                                <div className="hidden xs:block w-px h-8 sm:h-12 bg-brand-border" />
                                 <div className="text-center">
-                                    <div className="font-display font-black text-4xl gradient-text-static">Private</div>
-                                    <div className="text-brand-muted text-sm mt-1">By Invitation</div>
+                                    <div className="font-display font-black text-2xl sm:text-4xl gradient-text-static">Private</div>
+                                    <div className="text-brand-muted text-xs sm:text-sm mt-1">By Invitation</div>
                                 </div>
-                                <div className="w-px h-12 bg-brand-border" />
+                                <div className="hidden xs:block w-px h-8 sm:h-12 bg-brand-border" />
                                 <div className="text-center">
-                                    <div className="font-display font-black text-4xl gradient-text-static">Custom</div>
-                                    <div className="text-brand-muted text-sm mt-1">Providing Solutions</div>
+                                    <div className="font-display font-black text-2xl sm:text-4xl gradient-text-static">Custom</div>
+                                    <div className="text-brand-muted text-xs sm:text-sm mt-1">Providing Solutions</div>
                                 </div>
                             </div>
 
-                            <div className="flex gap-4 pt-4">
+                            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
                                 <motion.a
                                     href="#contact"
                                     onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}

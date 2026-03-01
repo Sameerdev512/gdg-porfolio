@@ -39,18 +39,18 @@ export default function Navbar() {
                         : 'bg-transparent py-5'
                     }`}
             >
-                <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+                <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 flex items-center justify-between">
                     {/* Logo */}
                     <motion.a
                         href="#hero"
                         onClick={() => handleNavClick('#hero')}
-                        className="flex items-center gap-2 group cursor-pointer"
+                        className="flex items-center gap-1.5 sm:gap-2 group cursor-pointer"
                         whileHover={{ scale: 1.02 }}
                     >
-                        <div className="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center shadow-glow-primary">
-                            <span className="text-white font-bold text-sm font-display">SK</span>
+                        <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-lg bg-gradient-brand flex items-center justify-center shadow-glow-primary">
+                            <span className="text-white font-bold text-xs sm:text-sm font-display">SK</span>
                         </div>
-                        <span className="font-display font-bold text-brand-text text-lg tracking-tight">
+                        <span className="font-display font-bold text-brand-text text-base sm:text-lg tracking-tight">
                             Sameer<span className="gradient-text-static">.</span>
                         </span>
                     </motion.a>
