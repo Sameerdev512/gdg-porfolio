@@ -40,7 +40,7 @@ export default function Founder() {
                                 Currently building the foundation: developing case studies, refining service delivery, and creating systems for scalable growth. Ready to partner with forward-thinking brands that need a builder, not just a developer.
                             </p>
 
-                            <div className="flex flex-col xs:flex-row items-center gap-3 sm:gap-6 pt-4">
+                            <div className="flex flex-row xs:flex-row items-center gap-3 sm:gap-6 pt-4">
                                 <div className="text-center">
                                     <div className="font-display font-black text-2xl sm:text-4xl gradient-text-static">1</div>
                                     <div className="text-brand-muted text-xs sm:text-sm mt-1">Agency Founded</div>
@@ -57,7 +57,7 @@ export default function Founder() {
                                 </div>
                             </div>
 
-                            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
+                            <div className="flex flex-row sm:flex-row gap-3 sm:gap-4 pt-4">
                                 <motion.a
                                     href="#contact"
                                     onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
