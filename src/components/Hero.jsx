@@ -78,7 +78,7 @@ export default function Hero() {
         <section
             ref={heroRef}
             id="hero"
-            className="relative py-10 sm:py-16 md:py-20 lg:py-28 flex items-center justify-center overflow-hidden"
+            className="relative py-12 sm:py-16 md:py-20 lg:py-28 flex items-center justify-center overflow-hidden"
         >
             {/* ── Noise texture overlay */}
             <div
@@ -244,7 +244,7 @@ export default function Hero() {
                     </motion.a>
                     <motion.a
                         href="mailto:sameerkhatri5050@gmail.com"
-                        className="btn-outline text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-3.5"
+                        className="btn-outline text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-3.5 mb-2 md:mb-0"
                         whileHover={{ scale: 1.04, y: -2 }}
                         whileTap={{ scale: 0.97 }}
                         data-hover="true"
@@ -281,7 +281,7 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.4, duration: 0.8 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+                className="hidden md:block absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
             >
                 <span className="text-brand-muted text-[10px] uppercase tracking-[0.25em]">Explore</span>
                 <div className="w-5 h-8 border border-brand-border/50 rounded-full flex items-start justify-center p-1">
