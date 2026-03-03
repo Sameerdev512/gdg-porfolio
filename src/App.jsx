@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
-import { HelmetProvider } from 'react-helmet-async'
 import { AnimatePresence, motion } from 'framer-motion'
 import Home from './pages/Home'
 import CursorGlow from './components/CursorGlow'
@@ -26,14 +25,12 @@ function AnimatedRoutes() {
 
 function App() {
   return (
-    <HelmetProvider>
-      <Router>
-        {/* Global UI layer — always rendered above page content */}
-        <CursorGlow />
-        <ScrollProgress />
-        <AnimatedRoutes />
-      </Router>
-    </HelmetProvider>
+    <Router>
+      {/* Global UI layer — always rendered above page content */}
+      <CursorGlow />
+      <ScrollProgress />
+      <AnimatedRoutes />
+    </Router>
   )
 }
 
