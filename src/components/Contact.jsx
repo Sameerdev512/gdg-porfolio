@@ -97,15 +97,36 @@ export default function Contact() {
     const [sent, setSent] = useState(false)
     const [submitting, setSubmitting] = useState(false)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         setSubmitting(true)
-        setTimeout(() => {
-            window.location.href = `mailto:sameerkhatri5050@gmail.com?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`)}`
-            setSent(true)
+
+        const formData = new FormData()
+        formData.append("access_key", "31d6ea3d-9f85-4186-847e-3cff8e45195b") // Replace this with your actual access key
+        formData.append("name", form.name)
+        formData.append("email", form.email)
+        formData.append("subject", form.subject)
+        formData.append("message", form.message)
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            })
+            const data = await response.json()
+
+            if (data.success) {
+                setSent(true)
+                setForm({ name: '', email: '', subject: '', message: '' })
+                setTimeout(() => setSent(false), 5000)
+            } else {
+                console.error("Form submission error", data)
+            }
+        } catch (error) {
+            console.error("Error submitting form", error)
+        } finally {
             setSubmitting(false)
-            setTimeout(() => setSent(false), 5000)
-        }, 700)
+        }
     }
 
     return (
@@ -265,7 +286,7 @@ export default function Contact() {
                                         animate={{ opacity: 1, y: 0 }}
                                         className="text-center text-green-400 text-xs font-mono leading-relaxed"
                                     >
-                    // email_client.open() → success. Looking forward to connecting 🙌
+                    // message_sent.status() → success. Looking forward to connecting 🙌
                                     </motion.p>
                                 )}
                             </div>

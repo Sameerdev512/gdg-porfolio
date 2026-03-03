@@ -28,7 +28,11 @@ export default function Home() {
                 <meta property="og:description" content="React Developer, Agency Founder, and AI Enthusiast from Indore, India." />
                 <meta property="og:url" content="https://sameerkhatri.dev/" />
                 <meta property="og:site_name" content="Sameer Khatri Portfolio" />
+                <meta property="og:image" content="https://sameerkhatri.dev/og-image.png" />
                 <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:site" content="@sameerkhatri" />
+                <meta name="twitter:creator" content="@sameerkhatri" />
+                <meta name="twitter:image" content="https://sameerkhatri.dev/og-image.png" />
                 <script type="application/ld+json">{JSON.stringify({
                     "@context": "https://schema.org",
                     "@type": "Person",
