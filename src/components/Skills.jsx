@@ -40,17 +40,20 @@ const CLUSTER_COLOR = { frontend: '#61DAFB', backend: '#6DB33F', tools: '#F05032
 export default function Skills() {
     const ref = useRef(null)
     const inView = useInView(ref, { once: true, margin: '-80px' })
+    const [selectedNode, setSelectedNode] = useState('react')
     const [hoveredNode, setHoveredNode] = useState(null)
 
+    const activeNode = hoveredNode || selectedNode
+
     const isConnected = useCallback((nodeId) => {
-        if (!hoveredNode) return false
-        return EDGES.some(([a, b]) => (a === hoveredNode && b === nodeId) || (b === hoveredNode && a === nodeId))
-    }, [hoveredNode])
+        if (!activeNode) return false
+        return EDGES.some(([a, b]) => (a === activeNode && b === nodeId) || (b === activeNode && a === nodeId))
+    }, [activeNode])
 
     const isEdgeActive = useCallback((a, b) => {
-        if (!hoveredNode) return false
-        return (a === hoveredNode || b === hoveredNode)
-    }, [hoveredNode])
+        if (!activeNode) return false
+        return (a === activeNode || b === activeNode)
+    }, [activeNode])
 
     const nodeMap = Object.fromEntries(NODES.map(n => [n.id, n]))
 
@@ -85,8 +88,8 @@ export default function Skills() {
                     initial={{ opacity: 0, scale: 0.94 }}
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.8, ease: EASE.out, delay: 0.2 }}
-                    className="relative mx-auto"
-                    style={{ maxWidth: 900, aspectRatio: '16/9' }}
+                    className="relative mx-auto w-full aspect-square md:aspect-video"
+                    style={{ maxWidth: 900 }}
                 >
                     <svg
                         viewBox="0 0 100 100"
@@ -118,7 +121,7 @@ export default function Skills() {
                                     initial={{ pathLength: 0, opacity: 0 }}
                                     animate={inView ? {
                                         pathLength: 1,
-                                        opacity: hoveredNode ? (active ? 1 : 0.15) : 0.6,
+                                        opacity: activeNode ? (active ? 1 : 0.15) : 0.6,
                                     } : {}}
                                     transition={{
                                         pathLength: { delay: i * 0.04 + 0.5, duration: 0.6, ease: 'easeOut' },
@@ -133,22 +136,22 @@ export default function Skills() {
 
                         {/* Nodes */}
                         {NODES.map((node, i) => {
-                            const isHovered = hoveredNode === node.id
+                            const isHovered = activeNode === node.id
                             const connected = isConnected(node.id)
-                            const dimmed = hoveredNode && !isHovered && !connected
+                            const dimmed = activeNode && !isHovered && !connected
                             // Fixed radius — don't animate r on SVG, animate scale on g instead
                             const baseR = node.r / 10
 
                             return (
                                 <motion.g
                                     key={node.id}
-                                    onHoverStart={() => setHoveredNode(node.id)}
+                                    onHoverStart={() => { setHoveredNode(node.id); setSelectedNode(node.id) }}
                                     onHoverEnd={() => setHoveredNode(null)}
                                     style={{ cursor: 'pointer', transformOrigin: `${node.x}% ${node.y}%` }}
                                     initial={{ scale: 0, opacity: 0 }}
                                     animate={inView ? {
-                                        scale: isHovered ? 1.18 : 1,
-                                        opacity: dimmed ? 0.25 : 1,
+                                        scale: activeNode === node.id ? 1.18 : 1,
+                                        opacity: (activeNode && activeNode !== node.id && !isConnected(node.id)) ? 0.25 : 1,
                                     } : { scale: 0, opacity: 0 }}
                                     transition={{ delay: inView ? i * 0.05 + 0.3 : 0, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                                 >
@@ -195,11 +198,11 @@ export default function Skills() {
                     </svg>
 
                     {/* Hovered node tooltip */}
-                    {hoveredNode && (() => {
-                        const n = nodeMap[hoveredNode]
+                    {activeNode && (() => {
+                        const n = nodeMap[activeNode]
                         return (
                             <motion.div
-                                key={hoveredNode}
+                                key={activeNode}
                                 initial={{ opacity: 0, y: 8 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 className="absolute top-3 left-3 glass rounded-xl px-4 py-2.5 pointer-events-none"

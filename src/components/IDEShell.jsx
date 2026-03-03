@@ -39,7 +39,7 @@ const COMPILE_STATUSES = [
 export default function IDEShell({ children, sections }) {
     const [activeFile, setActiveFile] = useState('hero')
     const [openTabs, setOpenTabs] = useState(['hero', 'about', 'skills'])
-    const [sidebarOpen, setSidebarOpen] = useState(true)
+    const [sidebarOpen, setSidebarOpen] = useState(() => typeof window !== 'undefined' ? window.innerWidth >= 768 : true)
     const [expandedFolders, setExpandedFolders] = useState({ src: true })
     const [compileStatus, setCompileStatus] = useState(4) // index into COMPILE_STATUSES
     const [cursorPos, setCursorPos] = useState({ line: 1, col: 1 })
@@ -98,6 +98,11 @@ export default function IDEShell({ children, sections }) {
         container.scrollTo({ top: scrollOffset, behavior: 'smooth' })
         setOpenTabs(prev => prev.includes(id) ? prev : [...prev.slice(-4), id])
         setActiveFile(id)
+
+        // Close sidebar on mobile when a file is clicked
+        if (typeof window !== 'undefined' && window.innerWidth < 768) {
+            setSidebarOpen(false)
+        }
     }
 
     const closeTab = (e, id) => {

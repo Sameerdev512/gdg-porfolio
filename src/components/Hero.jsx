@@ -78,7 +78,7 @@ export default function Hero() {
         <section
             ref={heroRef}
             id="hero"
-            className="relative min-h-screen flex items-center justify-center overflow-hidden"
+            className="relative py-10 sm:py-16 md:py-20 lg:py-28 flex items-center justify-center overflow-hidden"
         >
             {/* ── Noise texture overlay */}
             <div
@@ -139,7 +139,7 @@ export default function Hero() {
 
             {/* ── Content */}
             <motion.div
-                className="relative z-20 max-w-7xl mx-auto px-4 sm:px-5 md:px-6 text-center flex flex-col items-center gap-5 sm:gap-6 md:gap-7"
+                className="relative z-20 max-w-7xl mx-auto px-4 sm:px-5 md:px-6 pt-0 sm:pt-0 text-center flex flex-col items-center gap-5 sm:gap-6 md:gap-7"
                 style={{ opacity: heroOpacity, y: heroY }}
             >
                 {/* Authority badge */}

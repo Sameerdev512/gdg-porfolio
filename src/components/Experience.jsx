@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useScroll, useTransform, useInView } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { scrollRevealScale, EASE } from '../animations/animationVariants'
 
 const EVENTS = [
@@ -79,10 +79,6 @@ export default function Experience() {
     const spineRef = useRef(null)
     const inView = useInView(sectionRef, { once: true, margin: '-80px' })
 
-    // Scroll-driven spine growth
-    const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start 80%', 'end 20%'] })
-    const spineScaleY = useTransform(scrollYProgress, [0, 1], [0, 1])
-
     return (
         <section id="experience" ref={sectionRef} className="py-12 sm:py-16 md:py-20 lg:py-28 relative overflow-hidden">
             {/* Chapter atmosphere */}
@@ -107,15 +103,16 @@ export default function Experience() {
                     {/* Scroll-driven spine that GROWS with scroll */}
                     <div
                         ref={spineRef}
-                        className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px origin-top"
+                        className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px hidden md:block"
                         style={{ overflow: 'hidden' }}
                     >
                         <motion.div
                             className="absolute top-0 left-0 w-full"
-                            initial={{ scaleY: 1 }}
+                            initial={{ scaleY: 0 }}
+                            animate={inView ? { scaleY: 1 } : { scaleY: 0 }}
+                            transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
                             style={{
                                 height: '100%',
-                                scaleY: spineScaleY,
                                 transformOrigin: 'top',
                                 background: 'linear-gradient(180deg, #4F9DFF 0%, #7C5CFF 50%, #22D3EE 100%)',
                                 boxShadow: '0 0 8px rgba(79,157,255,0.4)',
