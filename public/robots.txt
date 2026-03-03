@@ -1,0 +1,21 @@
+# Robots.txt for Sameer Khatri Portfolio
+User-agent: *
+Allow: /
+Allow: /assets/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+
+# Allow specific search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://sameerkhatri.dev/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
