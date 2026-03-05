@@ -55,7 +55,7 @@ export default function CTA() {
                     className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
                 >
                     <motion.a
-                        href="mailto:sameerkhatri5050@gmail.com"
+                        href="mailto:sameerkhatridev512@gmail.com"
                         className="btn-primary text-xs sm:text-sm md:text-base px-5 sm:px-8 py-2.5 sm:py-4"
                         whileHover={{ scale: 1.04, boxShadow: '0 0 40px rgba(79,157,255,0.4)' }}
                         whileTap={{ scale: 0.97 }}

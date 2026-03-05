@@ -79,7 +79,7 @@ export default function Navbar() {
                     {/* CTA */}
                     <div className="hidden md:flex items-center gap-3">
                         <motion.a
-                            href="mailto:sameerkhatri5050@gmail.com"
+                            href="mailto:sameerkhatridev512@gmail.com"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.7 }}
@@ -123,7 +123,7 @@ export default function Navbar() {
                                 </button>
                             ))}
                             <a
-                                href="mailto:sameerkhatri5050@gmail.com"
+                                href="mailto:sameerkhatridev512@gmail.com"
                                 className="btn-primary text-sm mt-2"
                             >
                                 <span>Hire Me</span>

@@ -243,7 +243,7 @@ export default function Hero() {
                         </svg>
                     </motion.a>
                     <motion.a
-                        href="mailto:sameerkhatri5050@gmail.com"
+                        href="mailto:sameerkhatridev512@gmail.com"
                         className="btn-outline text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-3.5 mb-2 md:mb-0"
                         whileHover={{ scale: 1.04, y: -2 }}
                         whileTap={{ scale: 0.97 }}

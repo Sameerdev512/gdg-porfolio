@@ -1,4 +1,4 @@
-import { useRef,useState,useEffect } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { staggerContainer, scrollRevealScale, EASE } from '../animations/animationVariants'
 
@@ -93,13 +93,13 @@ export default function About() {
                             left: '50%',
                             transform: 'translateX(-50%)',
                             width: '4px',
-                            minHeight: '60px',
-                            height: spineProgress === 0 ? '60px' : `calc(${spineProgress * 100}% )`,
+                            minHeight: '0px',
+                            height: spineProgress === 0 ? '0px' : `calc(${spineProgress * 100}% )`,
                             background: 'linear-gradient(180deg, #4F9DFF, #7C5CFF, #22D3EE)',
                             borderRadius: '2px',
                         }}
-                        initial={{ height: '60px' }}
-                        animate={{ height: spineProgress === 0 ? '60px' : `${spineProgress * 100}%` }}
+                        initial={{ height: '0px' }}
+                        animate={{ height: spineProgress === 0 ? '0px' : `${spineProgress * 100}%` }}
                         transition={{ type: 'spring', stiffness: 60, damping: 20 }}
                     />
                 </div>
